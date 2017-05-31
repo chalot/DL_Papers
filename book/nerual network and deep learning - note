@@ -9,3 +9,42 @@ Over time this can lead to the weight vector being very large indeed. This can c
 in more or less the same direction, since changes due to gradient descent only make tiny changes to the direction, 
 when the length is long. I believe this phenomenon is making it hard for our learning algorithm to properly explore the weight space, 
 and consequently harder to find good minima of the cost function.”
+
+另一种观点：
+显示世界中崇尚“简单”原则。把物理世界看做是简单模型+噪声。
+复杂模型可能是学习到了过多的噪声，或者受噪声干扰过大；而简单模型更好地弱化了噪声数据的影响。
+
+a network with large weights may change its behaviour quite a bit in response to small changes in the input. 
+And so an unregularized network can use large weights to learn a complex model that carries a lot of information about 
+the noise in the training data. 
+In a nutshell, regularized networks are constrained to build relatively simple models based on patterns seen often in the training data, 
+and are resistant to learning peculiarities of the noise in the training data.
+对输入的小的变化，一个具有较大权值的网络，可能出现较大的反应。因此一个未正则化网络可以学到一个复杂模型，囊括了训练数据中的噪声。
+然而，正则化网络，强迫学习到的是一个简单的模型，对训练集中的特定的噪声数据不敏感。这样的网络具有更好的泛化能力。
+
+当然，不能一概而论，简单就一定比复杂好。有时候复杂模型反而正确。
+There is no a priori logical reason to prefer simple explanations over more complex explanations. 
+Indeed, sometimes the more complex explanation turns out to be correct.
+
+it's an empirical fact that regularized neural networks usually generalize better than unregularized networks
+正则化要比未正则化网络的泛化性好，是一种经验说法。
+
+目前尚未有人能够理论上证明，为什么正则化使得网络泛化性更好。
+
+现在研究人员干的是尝试不同的正则化方法，来比较结果的好坏，并试图搞懂不同方法为啥有的好有的坏。
+
+总结 正则化为啥能够提高网络泛化性，只有直觉上的解释，并没有严格的理论证明。
+Regularization may give us a computational magic wand that helps our networks generalize better, 
+but it doesn't give us a principled understanding of how generalization works, nor of what the best approach is
+
+反观人脑。我们只需给小朋友看几张大象的照片，小朋友就可以分辨出大象，虽然偶然也可能把大象和犀牛搞混淆，但一般来说正确率还是非常高的。
+大脑具有非常多的神经元，也就是非常多的自由参数，且具有如此好的泛化性，在一定意义上，也就是正则化做的好！大脑怎么办到的，人类还不知道。
+
+！！！正则化的讨论处处是坑！！！
+例子中，100个隐藏节点，NN总参数~80000个，训练50000张图片，参数个数远远超出数据量，
+按理来说应该严重过拟合，但实际中泛化性却还是非常不错，奇了怪了！
+一种解释：梯度下降算法具有天生的“self-regulization”能力，可又无法证明这个猜想。
+
+不管怎么样，在实际应用时，我们还是使用正则化方法，能用就用，一般来说NN要更好。
+
+L2正则化为啥没对b？经验上没什么作用。（没搞清楚~~）
