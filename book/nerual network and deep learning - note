@@ -48,3 +48,19 @@ but it doesn't give us a principled understanding of how generalization works, n
 不管怎么样，在实际应用时，我们还是使用正则化方法，能用就用，一般来说NN要更好。
 
 L2正则化为啥没对b？经验上没什么作用。（没搞清楚~~）
+
+===================================================
+其他正则化方法
+===================================================
+L1 regulization，Dropout，人工增大训练集数据
+
+if we think of our network as a model which is making predictions, 
+then we can think of dropout as a way of making sure that the model is robust to the loss of any individual piece of evidence.
+
+Dropout has been especially useful in training large, deep networks, where the problem of overfitting is often acute
+Dropout方法对于训练那些容易过拟合的大的深度网络，非常有用。
+
+人工增大训练集数据：一定的小旋转（注意：不能任意旋转），可以往训练集中添加大量的小变换过的图像
+
+The general principle is to expand the training data by applying operations that reflect real-world variation
+总的原则是往训练数据中添加反应真实世界的处理。如，加背景噪声，缩放，
