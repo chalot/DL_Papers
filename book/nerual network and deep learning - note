@@ -1,0 +1,11 @@
+Regulization
+作用：防止过拟合，提高分类的正确率
+不仅如此，可以有助于避免陷入局部最小值。无正则化时，随着不同的权值初始化（随机），可能出现陷入局部最小值
+正则化，是的结果具有更好的可复制性。
+why？（没看懂~~~）
+“Why is this going on? Heuristically, 
+if the cost function is unregularized, then the length of the weight vector is likely to grow, all other things being equal.
+Over time this can lead to the weight vector being very large indeed. This can cause the weight vector to get stuck pointing 
+in more or less the same direction, since changes due to gradient descent only make tiny changes to the direction, 
+when the length is long. I believe this phenomenon is making it hard for our learning algorithm to properly explore the weight space, 
+and consequently harder to find good minima of the cost function.”
