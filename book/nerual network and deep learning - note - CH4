@@ -1,0 +1,21 @@
+理论上，含有一个隐层的两层网络就可以近似任意函数，但为什么，解释往往过于复杂。本文给出简单解释。
+不是精确函数，而是可以不断的添加节点，任意逼近
+Summing up, a more precise statement of the universality theorem is that neural networks with a single hidden layer 
+can be used to approximate any continuous function to any desired precision
+
+原理：任意一个函数f(x)，可以被任意小的矩形块叠加来近似，分割的越窄，块数越多，近似度越高。
+而一个神经元y=wx+b，通过调节w,b值，如w设的非常大，输出y就可以近似一个这样的矩形，矩形的位置和高度可以随意调节。
+通过简单的增加神经元数目，可以在任意m维度，构造任意密集和大小的矩形块，来近似f(X1,X2,...Xm)
+
+So the right question to ask is not whether any particular function is computable, 
+but rather what's a good way to compute the function.
+
+既然两层就够了，为啥还要deep呢？因为deep能够更好地学习层次化的知识/表示，解决现实问题
+deep networks have a hierarchical structure which makes them particularly well adapted to learn the hierarchies of knowledge 
+that seem to be useful in solving real-world problems
+
+总结：一般性理论告诉我们神经网络可以计算任意函数。
+深度网络解决真实世界的问题效果最好。
+To sum up: universality tells us that neural networks can compute any function; 
+and empirical evidence suggests that 
+deep networks are the networks best adapted to learn the functions useful in solving many real-world problems.
