@@ -1,0 +1,24 @@
+光理论上可行没有用，需要能实现。
+we build up to a solution through multiple layers of abstraction.
+
+深层网络要比浅层网络更强
+there are theoretical results suggesting that deep networks are intrinsically more powerful than shallow networks
+
+对于深度网络，仍旧采用sgd和bp来训练，会悲剧的发现，结果不会比浅层网络好多少。
+training deep networks using our workhorse learning algorithm - stochastic gradient descent by backpropagation. 
+But we'll run into trouble, with our deep networks not performing much (if at all) better than shallow networks
+
+不同网络层，学习的速度差别很大。
+the different layers in our deep network are learning at vastly different speeds.
+
+梯度消失问题：
+We have here an important observation: 
+in at least some deep neural networks, the gradient tends to get smaller as we move backward through the hidden layers. 
+This means that neurons in the earlier layers learn much more slowly than neurons in later layers. 
+And while we've seen this in just a single network, there are fundamental reasons why this happens in many neural networks. 
+The phenomenon is known as the vanishing gradient problem
+
+深度网络里，梯度不稳定，要么出现梯度爆炸，要么梯度消失。这是基于梯度的学习算法本身存在的问题
+More generally, it turns out that the gradient in deep neural networks is unstable, 
+tending to either explode or vanish in earlier layers
+This instability is a fundamental problem for gradient-based learning in deep neural networks
