@@ -1,1 +1,24 @@
 Deep Learning
+
+我们既然用全连接的DNN已经取得非常好的识别效果，为啥不用DNN呢？--因为DNN没有考虑图片的空间结构。
+it's strange to use networks with fully-connected layers to classify images. 
+The reason is that such a network architecture does not take into account the spatial structure of the images
+
+CNN有三个基本思想：局部可视野，共享权值，池化
+Convolutional neural networks use three basic ideas: local receptive fields, shared weights, and pooling.
+
+一次全卷积生成的一个隐层，相当于在输入图像中检测同一个特征。
+This means that all the neurons in the first hidden layer detect exactly the same feature, just at different locations in the input image
+
+CNN具有很好的图片变换不变性。
+convolutional networks are well adapted to the translation invariance of images: 
+move a picture of a cat (say) a little ways, and it's still an image of a cat
+
+feature map：输入层到隐层的map，定义这个feature map的权值为共享权值，类似共享bias
+For this reason, we sometimes call the map from the input layer to the hidden layer a feature map
+the weights defining the feature map the shared weights
+the bias defining the feature map in this way the shared bias
+
+共享权值和bias通常称为定义一个核或过滤器
+The shared weights and bias are often said to define a kernel or filter
+
