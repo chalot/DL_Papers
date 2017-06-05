@@ -36,3 +36,30 @@ its exact location isn't as important as its rough location relative to other fe
 A big benefit is that there are many fewer pooled features, and so this helps reduce the number of parameters needed in later layers
 
 L2 pooling：取每个值平方和开根号
+
+提高结果的方法：
+1，更好的激活函数，sigmoid->ReLU
+2，扩展数据集。平移，旋转，拉伸。“elastic distortion”
+3，Dropout。书中只在全连接层做dropout，conv层能不能做？没明白。
+4，ensembling。跑几个模型，选最好的一个 
+
+解释了为什么Dropout只在全连接层上做的原因：没有必要。因为conv层已经减弱了过拟合的风险。如权值共享，更好的正则化dropout
+there's no need: the convolutional layers have considerable inbuilt resistance to overfitting. 
+The reason is that the shared weights mean that convolutional filters are forced to learn from across the entire image. 
+This makes them less likely to pick up on local idiosyncracies in the training data. 
+And so there is less need to apply other regularizers, such as dropout.
+
+我们解决了前面提到的DNN难以训练的梯度不稳定问题了？
+答案是：当然没有。但通过几个方法来克服影响：
+(1) Using convolutional layers greatly reduces the number of parameters in those layers, making the learning problem much easier; 
+(2) Using more powerful regularization techniques (notably dropout and convolutional layers) to reduce overfitting, 
+(3) Using rectified linear units instead of sigmoid neurons, to speed up training - empirically, often by a factor of 3-5; 
+(4) Using GPUs and being willing to train for a long period of time
+
+关于DNN是不是层数越多越好，越多才越是深度学习，作者认为不是。层数不是关心的重点，而宁愿把DNN当做一个工具，如更好的分类器
+But beyond that, the number of layers is not of primary fundamental interest. 
+Rather, the use of deeper networks is a tool to use to help achieve other goals - like better classification accuracies.
+
+得到一个工作很好的DNN不是一件容易的事，必然伴随试错，需要进行多次的实验。
+Getting a good, working network can involve a lot of trial and error, and occasional frustration. 
+In practice, you should expect to engage in quite a bit of experimentation
