@@ -22,3 +22,17 @@ the bias defining the feature map in this way the shared bias
 共享权值和bias通常称为定义一个核或过滤器
 The shared weights and bias are often said to define a kernel or filter
 
+
+Pooling layer通常卷积层之后立即接pooling层，来简化卷积层的输出
+Pooling layers are usually used immediately after convolutional layers. 
+What the pooling layers do is simplify the information in the output from the convolutional layer.
+
+max-pooling：取最大
+可以这样理解：在图片的任意区域中寻找一个给定特征是否存在。之后丢弃精确的位置信息。动机是一旦找到特征，其精确的位置信息，
+相对于对其他特征的大致位置而言，不是太重要。这样大大降低后续层的参数数目。
+We can think of max-pooling as a way for the network to ask whether a given feature is found anywhere in a region of the image. 
+It then throws away the exact positional information. The intuition is that once a feature has been found, 
+its exact location isn't as important as its rough location relative to other features. 
+A big benefit is that there are many fewer pooled features, and so this helps reduce the number of parameters needed in later layers
+
+L2 pooling：取每个值平方和开根号
