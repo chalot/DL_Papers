@@ -63,3 +63,49 @@ Rather, the use of deeper networks is a tool to use to help achieve other goals 
 得到一个工作很好的DNN不是一件容易的事，必然伴随试错，需要进行多次的实验。
 Getting a good, working network can involve a lot of trial and error, and occasional frustration. 
 In practice, you should expect to engage in quite a bit of experimentation
+
+ALEXLET：
+先把图片的短边缩放到256。在缩放后的图片上裁剪256*256区域，再从这个区域上随机抽取224×224图片。
+ rescaling each image so the shorter side had length 256. 
+ They then cropped out a 256×256 area in the center of the rescaled image. 
+ Finally, KSH extracted random 224×224 subimages (and horizontal reflections) from the 256×256 images. 
+ They did this random cropping as a way of expanding the training data, and thus reducing overfitting.
+
+问题：
+给图片一个很小的扰动，导致错分类。adversarial问题。原因没有搞清楚。
+庆幸的是，实际应用下，这种扰动出现的概率非常低，以至于一般不影响网络的泛化性。
+
+这个问题到现在才发现，也在另一方面说明了我们对神经网络理解的粗浅。
+
+虽然在测试集上取得很大成功，但并不表明就万事大吉了。不认识和解决掉NN的一些基础性问题，就很难说我们攻克了识别问题。
+But while this is encouraging it's not enough just to see improvements on benchmarks, or even real-world applications
+There are fundamental phenomena which we still understand poorly, such as the existence of adversarial images
+
+其他类型的NN：
+RNN：隐层单元的输出不仅仅有前一层隐层的输入决定，可能与过去状态或其他输入相关。
+RNNs are neural networks in which there is some notion of dynamic change over time.
+
+Long short-term memory units (LSTMs): 
+帮助RNN解决长时间依赖导致的梯度不稳定问题。使得RNN容易训练
+
+DBF：
+具有两个极好的特性：1，是一种泛化模型，2，是无监督学习模型。
+那为啥现在DBF没有DNN/RNN红火不得宠呢？作者认为跟现在研究的风气有关，DNN结果很好，大家一窝蜂都去搞DNN去了，把DBN冷落了。
+作者呼吁人们应该多投入写精力给DBN
+My personal opinion is that DBNs and other generative models likely deserve more attention than they are currently receiving.
+
+NN与其他领域的交叉
+CNN+深度增强学习
+
+====================================
+DNN的未来
+====================================
+技术的发展起起伏伏，三年河东三年河西。很难讲NN会怎么样，谁也不能否认什么时候会出现一个黑科技完胜DNN
+
+作者的一个预测：深度学习的位置：能够学习层次化概念，建立多级抽象，表达现实世界。但也并不意味着未来的DNN就不会有大的改变。
+I will make one prediction: I believe deep learning is here to stay. The ability to learn hierarchies of concepts, 
+building up multiple layers of abstraction, seems to be fundamental to making sense of the world. 
+This doesn't mean tomorrow's deep learners won't be radically different than today's.
+
+DNN和AI：一切断言都为时过早，一切难以料定。但DNN确实创造了很多机会。
+
